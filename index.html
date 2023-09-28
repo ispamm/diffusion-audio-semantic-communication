@@ -1,1 +1,439 @@
-<!DOCTYPE html><html data-bs-theme="light" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>DiffInp_sito</title><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=896192cc65e20f1fcc6d792b5b9a4626"></head><body><div class="container"><section class="py-4 py-xl-5"><div class="container"><div class="text-white bg-primary border rounded border-0 border-primary d-flex flex-column justify-content-between flex-lg-row align-items-xxl-center p-4 p-md-4"><div class="pb-2 pb-lg-1"><h2 class="fw-bold mb-2">Page under construction</h2><p class="mb-0">Visit this page again in a few days to find out details about this project.</p></div><img src="https://freesvg.org/img/under-construction_geek_man_01.png" width="130"></div></div><div class="my-2"></div></section></div><div class="container"><h1 class="fs-1" style="text-align: center;margin-top: 2rem;font-size: 33.4px;color: var(--bs-link-hover-color);margin-bottom: 0.7rem;">Diffusion Models for <br>Audio Semantic Communication</h1><p style="text-align: center;font-size: 21px;margin-bottom: 5px;font-style: italic;">Eleonora Grassucci, Christian Marinoni, Andrea Rodriguez, and Danilo Comminiello</p><p style="text-align: center;font-size: 17px;color: var(--bs-light-text-emphasis);">Department of Information Engineering, Electronics and Telecommunications<br>Sapienza University of Rome, Italy</p></div><div class="container"><div class="row"><div class="col-md-12"><video width="560" height="315" style="width: 100%;height: 80%;max-height: 1500px;" autoplay="" muted="" preload="none"><source src="https://chrismarinoni.github.io/diffusion-models-audio-semantic-communication/assets/video/video1_home.mp4" type="video/mp4"></video></div></div></div><script src="assets/bootstrap/js/bootstrap.min.js?h=a52d057774a957ffc5c4e3aabf79520a"></script></body></html>
+<!DOCTYPE html><html data-bs-theme="light" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>DiffInp_sito</title><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=cd822b7fd22c8a95a68470c795adea69"><link rel="stylesheet" href="assets/css/styles.min.css?h=faba8f2f408f2fb5a916264a40bdee69"><link rel="stylesheet" type="text/css" href="spectrogram-player/style.css" />
+<script type="text/javascript" src="spectrogram-player/spectrogram-player.js"></script>
+</head><body><div class="container-fluid"><div class="row" style="min-height: 100vh;"><div class="col-md-6 col-xxl-6 d-xxl-flex align-items-xxl-center"><div class="centered-div" style="width: 100%;margin-bottom: 0.5rem;margin-top: 0.5rem;"><div style="background: #00000012;margin: 0.5rem;padding: 1rem;border-radius: 27px;max-width: 800px;margin-bottom: 2rem;"><h1 style="text-align: center;margin-top: 0.5rem;font-size: 43.4px;color: var(--bs-link-hover-color);margin-bottom: 0.7rem;letter-spacing: 0.2px;">Diffusion Models for <br>Audio Semantic Communication</h1><p style="text-align: center;font-size: 21px;margin-bottom: 5px;font-style: italic;">Eleonora Grassucci, Christian Marinoni, Andrea Rodriguez, and Danilo Comminiello</p><p style="text-align: center;font-size: 17px;color: var(--bs-light-text-emphasis);">Department of Information Engineering, Electronics and Telecommunications<br>Sapienza University of Rome, Italy</p><div style="text-align: center;margin-bottom: 0.5rem;"><a class="btn btn-primary" role="button" style="border-radius: 35px;margin-right: 15px;background: var(--bs-btn-hover-bg);" href="https://arxiv.org/abs/2309.07195" rel="external" target="_blank"><img src="assets/img/arxiv_logo_full.png?h=8defb76aa3ddc04a594a334760c1bf84" width="60" height="27"></a><a class="btn btn-primary" role="button" style="border-radius: 35px;background: var(--bs-link-hover-color);" rel="external"><img src="assets/img/github.png?h=e144ccf9f9ba55ac681f0e92ec6b1a69" style="height: 27px;" width="27" height="27">&nbsp;Code (available soon)</a></div></div><div style="padding: 20px;max-width: 700px;"><h2 style="color: var(--bs-orange);">What's new?</h2><ul class="fs-5" style="text-align: justify;"><li>To the best of our knowledge, we propose the <strong>first diffusion model-based framework for audio semantic communication</strong>.</li><li>We design a reverse sampling procedure to perform multiple restorations at the same time, such as <strong>denoising </strong>and <strong>inpainting </strong>even in the case of highly degraded channel conditions.</li><li>We show the effectiveness of the proposed framework in real-world scenarios, including both speeches and sounds proving its superiority with respect to state-of-the-art comparisons.</li></ul><a class="btn btn-primary" role="button" style="border-radius: 18px;background: var(--bs-orange);padding: 0px;padding-left: 5px;padding-right: 5px;padding-bottom: 2px;padding-top: 5px;border-style: none;" href="#more"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="font-size: 30px;">
+  <path d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z" fill="currentColor"></path>
+</svg></a></div></div></div><div class="col-md-6 col-xxl-6 d-xl-flex d-xxl-flex justify-content-xl-center align-items-xl-center align-items-xxl-center"><img src="assets/img/architettura_modello.png?h=953e423defe0970bb1afb8c542792a71" style="width: 100%;max-width: 788px;"></div></div></div><div class="container" style="margin-top: 4rem;"><div class="row"><div class="col-md-12" id="more" style="margin-bottom: 1.5rem;"><h2 style="color: var(--bs-orange);">Abstract</h2><p class="fs-5" style="text-align: justify;">Directly sending audio signals from a transmitter to a receiver across a noisy channel may absorb consistent bandwidth and be prone to errors when trying to recover the transmitted bits. On the contrary, the recent semantic communication approach proposes to send the semantics and then regenerate semantically consistent content at the receiver without exactly recovering the bitstream.<br>In this work, we propose a generative audio semantic communication framework that faces the communication problem as an inverse problem, therefore being robust to different corruptions. Our method transmits lower-dimensional representations of the audio signal and of the associated semantics to the receiver, which generates the corresponding signal with a particular focus on its meaning (i.e., the semantics) thanks to the conditional diffusion model at its core. During the generation process, the diffusion model restores the received information from multiple degradations at the same time including corruption noise and missing parts caused by the transmission over the noisy channel. We show that our framework outperforms competitors in a real-world scenario and with different channel conditions.</p></div></div></div><div class="container"><div class="row d-md-flex d-xl-flex justify-content-md-center justify-content-xl-center" style="margin-bottom: 3rem;"><div class="col-md-9 col-lg-8 col-xl-7 col-xxl-6 offset-xxl-0 d-xxl-flex align-items-xxl-center"><figure class="figure"><img class="img-fluid figure-img" src="assets/img/tasks.jpg?h=134ad5c5765f73173f63a6ff33468133"><figcaption class="figure-caption"><strong>Figure 1.</strong> Results of the proposed framework on the denoising and inpainting tasks performed on low-dimensional representations of audio signals and semantics corrupted by a communication channel.</figcaption></figure></div></div></div><div class="container"><h2 style="color: var(--bs-orange);">Examples</h2><p class="fs-5" style="text-align: justify;">Here we propose some examplesto appreciate the results obtained by our method. Examples are organized as follows: first you can listen to the trasmitted (original) signal - also representing our target - and the received signal which is corrupted from the communication channel.<br>Next, the comparison of reconstructions made by three methods, including ours, is presented.<br><br>In addition, we consider two distinct cases: the first in which both the caption embeddings and lower-dimensional representations of the audio signal&nbsp;are subjected to noise (denoising task); the second in which the caption embeddings are subjected to noise and the audio embeddings have a missing portion (denoising + inpainting task).<br><br>By clicking on the respective buttons, it is also possible to hear the results for different levels of PSNR.</p><h4 style="color: var(--bs-orange);font-style: italic;margin-top: 3.5rem;">Denoising</h4></div><div class="container" style="margin-bottom: 2.5rem;border-style: dashed;border-color: #4c515580;border-radius: 16px;margin-top: 1.5rem;"><div class="row"><div class="col-md-12"><p class="fs-5" style="margin-top: 1rem;margin-bottom: 1.5rem;background: #00000012;border-radius: 16px;text-align: center;padding: 8px;"><strong>Example 1</strong><br>Prompt:&nbsp;<em>A child speaks in closed space.</em></p></div></div><div class="row" style="margin-left: -10px;margin-right: -10px;"><div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4 offset-md-2 offset-lg-3 offset-xl-0 offset-xxl-1" style="padding: 0.5rem;background: #FEF8F3;border-radius: 27px;border-style: solid;border-color: #DE8344;"><div style="max-width: 100%;width: 100%;"><p class="fs-6 text-center"><strong>Transmitted/Target signal</strong></p><div class="spectrogram-player" data-width="100%">
+  <img src="./assets/audio/spectrograms/00036_original_spectro.png" />
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00036_original.wav" type="audio/wav">
+        </audio></div>
+</div><p class="fs-6 text-center" style="margin-top: 16px;margin-bottom: 0px;color: #DE8344;">Sender</p></div></div><div class="col-lg-4 col-xl-4 col-xxl-2 offset-lg-4 offset-xl-0 offset-xxl-0 text-center d-lg-flex d-xl-flex d-xxl-flex justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center justify-content-xxl-center align-items-xxl-center"><div><img src="assets/img/comm_channel_img.jpeg?h=8e7a3ff6ffbbf1715b3cb5768a1f03f3" style="width: 100%;max-width: 163px;margin-top: 15px;margin-bottom: 8px;"><p style="margin-bottom: 0px;">PSNR levels</p><div class="btn-group psnr-group-3" role="group" style="margin-bottom: 15px;"><button class="btn btn-primary psnr15" type="button" style="border-radius: 16px 0px 0px 16px;background: var(--bs-gray-600);border-color: var(--bs-black);" data-bs-target="">15</button><button class="btn btn-primary psnr175" type="button" style="background: var(--bs-gray);border-color: var(--bs-black);">17.5</button><button class="btn btn-primary active psnr20" type="button" style="background: var(--bs-dark-border-subtle);border-color: var(--bs-black);">20</button><button class="btn btn-primary psnr30" type="button" style="border-radius: 0px 16px 16px 0px;background: var(--bs-gray);border-color: var(--bs-black);">30</button></div></div></div><div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4 offset-md-2 offset-lg-3 offset-xl-0" style="padding: 0.5rem;background: #EFF1F4;border-radius: 27px;border-style: solid;border-color: #2F6EBA;"><div style="width: 100%;"><p class="text-center"><strong>Received signal</strong></p><div class="spectrogram-player received-signal" data-width="100%">
+  <img src="./assets/audio/spectrograms/00036_noisy_psnr20_spectro.png" />
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00036_noisy_psnr20.wav" type="audio/wav">
+        </audio></div>
+</div></div><p class="fs-6 text-center" style="margin-top: 16px;margin-bottom: 0px;color: #2F6EBA;">Receiver</p></div></div><p class="fs-5" style="margin-top: 23px;margin-bottom: 2px;text-align: center;"><strong>Restored signal</strong></p><div class="row"><div class="col-md-4 col-xxl-4 offset-xxl-2" style="padding: 0.5rem;"><div style="max-width: 100%;width: 100%;"><p class="text-center">Noise2Noise</p><div class="spectrogram-player N2N" data-width="100%">
+  <img src="./assets/audio/spectrograms/denoising_N2N_00036_psnr20_spectro.png" />
+  <div style="text-align:center;">
+      <audio controls>
+        <source src="./assets/audio/denoising_N2N_00036_psnr20.wav" type="audio/wav">
+      </audio>
+    </div>
+    
+</div></div></div><div class="col-md-4 offset-xxl-0" style="padding: 0.5rem;"><p class="text-center" style="color: #483d8b;"><strong>Our method</strong></p><div style="width: 100%;"><div class="spectrogram-player ourmethod" data-width="100%">
+  <img src="./assets/audio/spectrograms/denoising_ourmethod_00036_psnr20_spectro.png" />
+  <div style="text-align:center;">
+    <audio controls>
+    <source src="./assets/audio/denoising_ourmethod_00036_psnr20.wav" type="audio/wav">
+  </audio>
+    </div>
+</div></div></div></div></div><div class="container" style="margin-bottom: 2.5rem;border-style: dashed;border-color: #4c515580;border-radius: 16px;margin-top: 1.5rem;"><div class="row"><div class="col-md-12"><p class="fs-5" style="margin-top: 1rem;margin-bottom: 1.5rem;background: #00000012;border-radius: 16px;text-align: center;padding: 8px;"><strong>Example 2</strong><br>Prompt:&nbsp;<em>A sheep baa followed by birds chirping and then more sheep baaing.</em></p></div></div><div class="row" style="margin-left: -10px;margin-right: -10px;"><div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4 offset-md-2 offset-lg-3 offset-xl-0 offset-xxl-1" style="padding: 0.5rem;background: #FEF8F3;border-radius: 27px;border-style: solid;border-color: #DE8344;"><div style="max-width: 100%;width: 100%;"><p class="fs-6 text-center"><strong>Transmitted/Target signal</strong></p><div class="spectrogram-player" data-width="100%">
+  <img src="./assets/audio/spectrograms/00040_original_spectro.png" />
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00040_original.wav" type="audio/wav">
+        </audio></div>
+</div><p class="fs-6 text-center" style="margin-top: 16px;margin-bottom: 0px;color: #DE8344;">Sender</p></div></div><div class="col-lg-4 col-xl-4 col-xxl-2 offset-lg-4 offset-xl-0 offset-xxl-0 text-center d-lg-flex d-xl-flex d-xxl-flex justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center justify-content-xxl-center align-items-xxl-center"><div><img src="assets/img/comm_channel_img.jpeg?h=8e7a3ff6ffbbf1715b3cb5768a1f03f3" style="width: 100%;max-width: 163px;margin-top: 15px;margin-bottom: 8px;"><p style="margin-bottom: 0px;">PSNR levels</p><div class="btn-group psnr-group-2" role="group" style="margin-bottom: 15px;"><button class="btn btn-primary psnr15" type="button" style="border-radius: 16px 0px 0px 16px;background: var(--bs-gray-600);border-color: var(--bs-black);" data-bs-target="">15</button><button class="btn btn-primary psnr175" type="button" style="background: var(--bs-gray);border-color: var(--bs-black);">17.5</button><button class="btn btn-primary active psnr20" type="button" style="background: var(--bs-dark-border-subtle);border-color: var(--bs-black);">20</button><button class="btn btn-primary psnr30" type="button" style="border-radius: 0px 16px 16px 0px;background: var(--bs-gray);border-color: var(--bs-black);">30</button></div></div></div><div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4 offset-md-2 offset-lg-3 offset-xl-0" style="padding: 0.5rem;background: #EFF1F4;border-radius: 27px;border-style: solid;border-color: #2F6EBA;"><div style="width: 100%;"><p class="text-center"><strong>Received signal</strong></p><div class="spectrogram-player received-signal" data-width="100%">
+  <img src="./assets/audio/spectrograms/00040_noisy_psnr20_spectro.png" />
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00040_noisy_psnr20.wav" type="audio/wav">
+        </audio></div>
+</div></div><p class="fs-6 text-center" style="margin-top: 16px;margin-bottom: 0px;color: #2F6EBA;">Receiver</p></div></div><p class="fs-5" style="margin-top: 23px;margin-bottom: 2px;text-align: center;"><strong>Restored signal</strong></p><div class="row"><div class="col-md-4 col-xxl-4 offset-xxl-2" style="padding: 0.5rem;"><div style="max-width: 100%;width: 100%;"><p class="text-center">Noise2Noise</p><div class="spectrogram-player N2N" data-width="100%">
+  <img src="./assets/audio/spectrograms/denoising_N2N_00040_psnr20_spectro.png" />
+  <div style="text-align:center;">
+      <audio controls>
+        <source src="./assets/audio/denoising_N2N_00040_psnr20.wav" type="audio/wav">
+      </audio>
+    </div>
+    
+</div></div></div><div class="col-md-4 offset-xxl-0" style="padding: 0.5rem;"><p class="text-center" style="color: #483d8b;"><strong>Our method</strong></p><div style="width: 100%;"><div class="spectrogram-player ourmethod" data-width="100%">
+  <img src="./assets/audio/spectrograms/denoising_ourmethod_00040_psnr20_spectro.png" />
+  <div style="text-align:center;">
+    <audio controls>
+    <source src="./assets/audio/denoising_ourmethod_00040_psnr20.wav" type="audio/wav">
+  </audio>
+    </div>
+</div></div></div></div></div><div class="container" style="margin-bottom: 2.5rem;border-radius: 16px;border: 2.4px dashed #4c515580;"><div class="row"><div class="col-md-12" style="margin-top: -9px;"><p class="fs-5" style="margin-top: 1rem;margin-bottom: 1.5rem;background: #00000012;border-radius: 16px;text-align: center;padding: 8px;"><strong>Example 3&nbsp;</strong>-<strong>&nbsp;</strong>Prompt:&nbsp;<em>A woman speaks and laughs and an animal grunts and snorts.</em></p></div></div><div class="row" style="margin-right: -10px;margin-left: -10px;padding-bottom: 8px;"><div class="col-12 col-md-6 col-lg-5 col-xl-4 col-xxl-3 offset-md-3 offset-lg-1 offset-xl-2 offset-xxl-0" style="border-radius: 27px;padding: 0.5rem;border-color: #DE8344;"><div style="max-width: 100%;width: 100%;"><p class="fs-6 text-center" style="margin-bottom: 3px;"><strong>Transmitted/Target signal</strong></p><div class="extra-examples">
+  <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00017_original.wav" type="audio/wav">
+      </audio></div>
+    
+</div></div></div><div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 col-xxl-3 offset-md-3 offset-lg-0 offset-xl-0" style="padding: 0.5rem;"><div style="width: 100%;"><p class="text-center" style="margin-bottom: 3px;"><strong>Received signal (PSNR 20)</strong></p><div class="extra-examples">
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00017_noisy_psnr20.wav" type="audio/wav">
+        </audio></div>
+</div></div></div><div class="col-md-5 col-lg-5 col-xl-4 col-xxl-3 offset-xxl-0" style="padding: 0.5rem;"><div style="width: 100%;"><p class="text-center" style="margin-bottom: 3px;">Noise2Noise</p><div class="extra-examples">
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/denoising_N2N_00017_psnr20.wav" type="audio/wav">
+        </audio></div>
+</div></div></div><div class="col-md-4 col-xxl-3 offset-md-4 offset-xxl-0" style="padding: 0.5rem;margin-bottom: 1rem;"><p class="text-center" style="color: #483d8b;margin-bottom: 3px;"><strong>Our method</strong></p><div style="width: 100%;"><div class="extra-examples">
+  <div style="text-align:center;">
+    <audio controls>
+    <source src="./assets/audio/denoising_ourmethod_00017_psnr20.wav" type="audio/wav">
+      </audio></div>
+</div></div></div></div></div><div class="container" style="margin-bottom: 2.5rem;border-radius: 16px;border: 2.4px dashed #4c515580;"><div class="row"><div class="col-md-12" style="margin-top: -9px;"><p class="fs-5" style="margin-top: 1rem;margin-bottom: 1.5rem;background: #00000012;border-radius: 16px;text-align: center;padding: 8px;"><strong>Example 4&nbsp;</strong>-<strong>&nbsp;</strong>Prompt:&nbsp;<em>A car speeding up in the distance.</em></p></div></div><div class="row" style="margin-right: -10px;margin-left: -10px;padding-bottom: 8px;"><div class="col-12 col-md-6 col-lg-5 col-xl-4 col-xxl-3 offset-md-3 offset-lg-1 offset-xl-2 offset-xxl-0" style="border-radius: 27px;padding: 0.5rem;border-color: #DE8344;"><div style="max-width: 100%;width: 100%;"><p class="fs-6 text-center" style="margin-bottom: 3px;"><strong>Transmitted/Target signal</strong></p><div class="extra-examples">
+  <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00018_original.wav" type="audio/wav">
+      </audio></div>
+    
+</div></div></div><div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 col-xxl-3 offset-md-3 offset-lg-0 offset-xl-0" style="padding: 0.5rem;"><div style="width: 100%;"><p class="text-center" style="margin-bottom: 3px;"><strong>Received signal (PSNR 20)</strong></p><div class="extra-examples">
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00018_noisy_psnr20.wav" type="audio/wav">
+        </audio></div>
+</div></div></div><div class="col-md-5 col-lg-5 col-xl-4 col-xxl-3 offset-xxl-0" style="padding: 0.5rem;"><div style="width: 100%;"><p class="text-center" style="margin-bottom: 3px;">Noise2Noise</p><div class="extra-examples">
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="https://ispamm.github.io/diffusion-audio-semantic-communication//assets/audio/denoising_N2N_00018_psnr20.wav" type="audio/wav">
+        </audio></div>
+</div></div></div><div class="col-md-4 col-xxl-3 offset-md-4 offset-xxl-0" style="padding: 0.5rem;margin-bottom: 1rem;"><p class="text-center" style="color: #483d8b;margin-bottom: 3px;"><strong>Our method</strong></p><div style="width: 100%;"><div class="extra-examples">
+  <div style="text-align:center;">
+    <audio controls>
+    <source src="https://ispamm.github.io/diffusion-audio-semantic-communication//assets/audio/denoising_ourmethod_00018_psnr20.wav" type="audio/wav">
+      </audio></div>
+</div></div></div></div></div><div class="container" style="margin-bottom: 2.5rem;border-radius: 16px;border: 2.4px dashed #4c515580;"><div class="row"><div class="col-md-12" style="margin-top: -9px;"><p class="fs-5" style="margin-top: 1rem;margin-bottom: 1.5rem;background: #00000012;border-radius: 16px;text-align: center;padding: 8px;"><strong>Example 5&nbsp;</strong>-<strong>&nbsp;</strong>Prompt:&nbsp;<em>A man speaks followed by another man speaking outside.</em></p></div></div><div class="row" style="margin-right: -10px;margin-left: -10px;padding-bottom: 8px;"><div class="col-12 col-md-6 col-lg-5 col-xl-4 col-xxl-3 offset-md-3 offset-lg-1 offset-xl-2 offset-xxl-0" style="border-radius: 27px;padding: 0.5rem;border-color: #DE8344;"><div style="max-width: 100%;width: 100%;"><p class="fs-6 text-center" style="margin-bottom: 3px;"><strong>Transmitted/Target signal</strong></p><div class="extra-examples">
+  <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00026_original.wav" type="audio/wav">
+      </audio></div>
+    
+</div></div></div><div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 col-xxl-3 offset-md-3 offset-lg-0 offset-xl-0" style="padding: 0.5rem;"><div style="width: 100%;"><p class="text-center" style="margin-bottom: 3px;"><strong>Received signal (PSNR 20)</strong></p><div class="extra-examples">
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00026_noisy_psnr20.wav" type="audio/wav">
+        </audio></div>
+</div></div></div><div class="col-md-5 col-lg-5 col-xl-4 col-xxl-3 offset-xxl-0" style="padding: 0.5rem;"><div style="width: 100%;"><p class="text-center" style="margin-bottom: 3px;">Noise2Noise</p><div class="extra-examples">
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/denoising_N2N_00026_psnr20.wav" type="audio/wav">
+        </audio></div>
+</div></div></div><div class="col-md-4 col-xxl-3 offset-md-4 offset-xxl-0" style="padding: 0.5rem;margin-bottom: 1rem;"><p class="text-center" style="color: #483d8b;margin-bottom: 3px;"><strong>Our method</strong></p><div style="width: 100%;"><div class="extra-examples">
+  <div style="text-align:center;">
+    <audio controls>
+    <source src="./assets/audio/denoising_ourmethod_00026_psnr20.wav" type="audio/wav">
+      </audio></div>
+</div></div></div></div></div><div class="container"><h4 style="color: var(--bs-orange);font-style: italic;margin-top: 3.5rem;">Denoising + Inpainting</h4></div><div class="container" style="margin-bottom: 2.5rem;border-style: dashed;border-color: #4c515580;border-radius: 16px;margin-top: 1.5rem;"><div class="row"><div class="col-md-12"><p class="fs-5" style="margin-top: 1rem;margin-bottom: 1.5rem;background: #00000012;border-radius: 16px;text-align: center;padding: 8px;"><strong>Example 1</strong><br>Prompt: <em>Various birds chirp and squeal, and an animal grunts.</em></p></div></div><div class="row" style="margin-left: -10px;margin-right: -10px;"><div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4 offset-md-2 offset-lg-3 offset-xl-0 offset-xxl-1" style="padding: 0.5rem;background: #FEF8F3;border-radius: 27px;border-style: solid;border-color: #DE8344;"><div style="max-width: 100%;width: 100%;"><p class="fs-6 text-center"><strong>Transmitted/Target signal</strong></p><div class="spectrogram-player" data-width="100%">
+  <img src="./assets/audio/spectrograms/00012_original_spectro.png" />
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00012_original.wav" type="audio/wav">
+        </audio></div>
+</div><p class="fs-6 text-center" style="margin-top: 16px;margin-bottom: 0px;color: #DE8344;">Sender</p></div></div><div class="col-lg-4 col-xl-4 col-xxl-2 offset-lg-4 offset-xl-0 offset-xxl-0 text-center d-lg-flex d-xl-flex d-xxl-flex justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center justify-content-xxl-center align-items-xxl-center"><div><img src="assets/img/comm_channel_img.jpeg?h=8e7a3ff6ffbbf1715b3cb5768a1f03f3" style="width: 100%;max-width: 163px;margin-top: 15px;margin-bottom: 8px;"><p style="margin-bottom: 0px;">PSNR levels</p><div class="btn-group psnr-group-0" role="group" style="margin-bottom: 15px;"><button class="btn btn-primary psnr15" type="button" style="border-radius: 16px 0px 0px 16px;background: var(--bs-gray-600);border-color: var(--bs-black);" data-bs-target="">15</button><button class="btn btn-primary psnr175" type="button" style="background: var(--bs-gray);border-color: var(--bs-black);">17.5</button><button class="btn btn-primary active psnr20" type="button" style="background: var(--bs-dark-border-subtle);border-color: var(--bs-black);">20</button><button class="btn btn-primary psnr30" type="button" style="border-radius: 0px 16px 16px 0px;background: var(--bs-gray);border-color: var(--bs-black);">30</button></div></div></div><div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4 offset-md-2 offset-lg-3 offset-xl-0" style="padding: 0.5rem;background: #EFF1F4;border-radius: 27px;border-style: solid;border-color: #2F6EBA;"><div style="width: 100%;"><p class="text-center"><strong>Received signal</strong></p><div class="spectrogram-player received-signal" data-width="100%">
+  <img src="./assets/audio/spectrograms/00012_original_masked_spectro.png" />
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00012_original_masked.wav" type="audio/wav">
+        </audio></div>
+</div></div><p class="fs-6 text-center" style="margin-top: 16px;margin-bottom: 0px;color: #2F6EBA;">Receiver</p></div></div><p class="fs-5" style="margin-top: 23px;margin-bottom: 2px;text-align: center;"><strong>Restored signal</strong></p><div class="row"><div class="col-md-4" style="padding: 0.5rem;"><div style="max-width: 100%;width: 100%;"><p class="text-center">AudioLDM</p><div class="spectrogram-player audioldm" data-width="100%">
+  <img src="./assets/audio/spectrograms/inpaint_audioldm_00012_psnr20_spectro.png" />
+  <div style="text-align:center;">
+      <audio controls>
+        <source src="./assets/audio/inpaint_audioldm_00012_psnr20.wav" type="audio/wav">
+      </audio>
+    </div>
+    
+</div></div></div><div class="col-md-4" style="padding: 0.5rem;"><div style="width: 100%;"><p class="text-center">Tango &amp; Repaint</p><div class="spectrogram-player repaint" data-width="100%">
+  <img src="./assets/audio/spectrograms/inpaint_repaint_00012_psnr20_spectro.png" />
+  <div style="text-align:center;">
+    <audio controls>
+    <source src="./assets/audio/inpaint_repaint_00012_psnr20.wav" type="audio/wav">
+  </audio>
+    </div>
+</div></div></div><div class="col-md-4" style="padding: 0.5rem;"><p class="text-center" style="color: #483d8b;"><strong>Our method</strong></p><div style="width: 100%;"><div class="spectrogram-player ourmethod" data-width="100%">
+  <img src="./assets/audio/spectrograms/inpaint_ourmethod_00012_psnr20_spectro.png" />
+  <div style="text-align:center;">
+    <audio controls>
+    <source src="./assets/audio/inpaint_ourmethod_00012_psnr20.wav" type="audio/wav">
+  </audio>
+    </div>
+</div></div></div></div></div><div class="container" style="margin-bottom: 2.5rem;border-radius: 16px;border: 2.4px dashed #4c515580;"><div class="row"><div class="col-md-12" style="margin-top: 1rem;"><p class="fs-5" style="margin-top: 1rem;margin-bottom: 1.5rem;background: #00000012;border-radius: 16px;text-align: center;padding: 8px;"><strong>Example 2</strong><br>Prompt:&nbsp;<em>A child speaks in closed space.</em></p></div></div><div class="row" style="margin-left: -10px;margin-right: -10px;"><div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4 offset-md-2 offset-lg-3 offset-xl-0 offset-xxl-1" style="padding: 0.5rem;background: #FEF8F3;border-radius: 27px;border-style: solid;border-color: #DE8344;"><div style="max-width: 100%;width: 100%;"><p class="fs-6 text-center"><strong>Transmitted/Target signal</strong></p><div class="spectrogram-player" data-width="100%">
+  <img src="./assets/audio/spectrograms/00036_original_spectro.png" />
+  <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00036_original.wav" type="audio/wav">
+      </audio></div>
+    
+</div><p class="fs-6 text-center" style="margin-top: 16px;margin-bottom: 0px;color: #DE8344;">Sender</p></div></div><div class="col-lg-4 col-xl-4 col-xxl-2 offset-lg-4 offset-xl-0 offset-xxl-0 text-center d-lg-flex d-xl-flex d-xxl-flex justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center justify-content-xxl-center align-items-xxl-center"><div><img src="assets/img/comm_channel_img.jpeg?h=8e7a3ff6ffbbf1715b3cb5768a1f03f3" style="width: 100%;max-width: 163px;margin-top: 15px;margin-bottom: 8px;"><p style="margin-bottom: 0px;">PSNR levels</p><div class="btn-group psnr-group-1" role="group" style="margin-bottom: 15px;"><button class="btn btn-primary psnr15" type="button" style="border-radius: 16px 0px 0px 16px;background: var(--bs-gray-600);border-color: var(--bs-black);" data-bs-target="">15</button><button class="btn btn-primary psnr175" type="button" style="background: var(--bs-gray);border-color: var(--bs-black);">17.5</button><button class="btn btn-primary active psnr20" type="button" style="background: var(--bs-dark-border-subtle);border-color: var(--bs-black);">20</button><button class="btn btn-primary psnr30" type="button" style="border-radius: 0px 16px 16px 0px;background: var(--bs-gray);border-color: var(--bs-black);">30</button></div></div></div><div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4 offset-md-2 offset-lg-3 offset-xl-0" style="padding: 0.5rem;background: #EFF1F4;border-radius: 27px;border-style: solid;border-color: #2F6EBA;"><div style="width: 100%;"><p class="text-center"><strong>Received signal</strong></p><div class="spectrogram-player received-signal" data-width="100%">
+  <img src="./assets/audio/spectrograms/00036_original_masked_spectro.png" />
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00036_original_masked.wav" type="audio/wav">
+        </audio></div>
+</div></div><p class="fs-6 text-center" style="margin-top: 16px;margin-bottom: 0px;color: #2F6EBA;">Receiver</p></div></div><p class="fs-5" style="margin-top: 23px;margin-bottom: 2px;text-align: center;"><strong>Restored signal</strong></p><div class="row"><div class="col-md-4" style="padding: 0.5rem;border-color: rgb(91,94,98);"><div style="max-width: 100%;width: 100%;"><p class="text-center">AudioLDM</p><div class="spectrogram-player audioldm" data-width="100%">
+  <img src="./assets/audio/spectrograms/inpaint_audioldm_00036_psnr20_spectro.png" />
+  <div style="text-align:center;">
+    <audio controls>
+    <source src="./assets/audio/inpaint_audioldm_00036_psnr20.wav" type="audio/wav">
+  </audio>
+    </div>
+</div></div></div><div class="col-md-4" style="padding: 0.5rem;"><div style="width: 100%;"><p class="text-center">Tango &amp; Repaint</p><div class="spectrogram-player repaint" data-width="100%">
+  <img src="./assets/audio/spectrograms/inpaint_repaint_00036_psnr20_spectro.png" />
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/inpaint_repaint_00036_psnr20.wav" type="audio/wav">
+        </audio></div>
+</div></div></div><div class="col-md-4" style="padding: 0.5rem;margin-bottom: 1rem;"><p class="text-center" style="color: #483d8b;"><strong>Our method</strong></p><div style="width: 100%;"><div class="spectrogram-player ourmethod" data-width="100%">
+  <img src="./assets/audio/spectrograms/inpaint_ourmethod_00036_psnr20_spectro.png" />
+  <div style="text-align:center;">
+    <audio controls>
+    <source src="./assets/audio/inpaint_ourmethod_00036_psnr20.wav" type="audio/wav">
+      </audio></div>
+</div></div></div></div></div><div class="container" style="margin-bottom: 2.5rem;border-radius: 16px;border: 2.4px dashed #4c515580;max-width: 98%;"><div class="row"><div class="col-md-12" style="margin-top: -9px;"><p class="fs-5" style="margin-top: 1rem;margin-bottom: 1.5rem;background: #00000012;border-radius: 16px;text-align: center;padding: 8px;"><strong>Example 3&nbsp;</strong>-<strong>&nbsp;</strong>Prompt:&nbsp;<em>A bus engine idles while a woman speaks making an announcement.</em></p></div></div><div class="row" style="margin-right: -10px;margin-left: -10px;padding-bottom: 8px;"><div class="col-12 col-md-6 col-lg-5 col-xl-4 col-xxl-2 offset-md-3 offset-lg-1 offset-xl-2 offset-xxl-1" style="border-radius: 27px;padding: 0.5rem;border-color: #DE8344;"><div style="max-width: 100%;width: 100%;"><p class="fs-6 text-center" style="margin-bottom: 3px;"><strong>Transmitted/Target signal</strong></p><div class="extra-examples">
+  <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00028_original.wav" type="audio/wav">
+      </audio></div>
+</div></div></div><div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 col-xxl-2 offset-md-3 offset-lg-0 offset-xl-0" style="padding: 0.5rem;"><div style="width: 100%;"><p class="text-center" style="margin-bottom: 3px;"><strong>Received signal (PSNR 20)</strong></p><div class="extra-examples">
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00028_original_masked.wav" type="audio/wav">
+        </audio></div>
+</div></div></div><div class="col-md-5 col-xl-4 col-xxl-2 offset-md-1 offset-xl-2 offset-xxl-0" style="padding: 0.5rem;border-color: rgb(91,94,98);"><div style="max-width: 100%;width: 100%;"><p class="text-center" style="margin-bottom: 3px;">AudioLDM</p><div class="extra-examples">
+  <div style="text-align:center;">
+    <audio controls>
+    <source src="./assets/audio/inpaint_audioldm_00028_psnr20.wav" type="audio/wav">
+  </audio>
+    </div>
+</div></div></div><div class="col-md-5 col-lg-5 col-xl-4 col-xxl-2 offset-xxl-0" style="padding: 0.5rem;"><div style="width: 100%;"><p class="text-center" style="margin-bottom: 3px;">Tango &amp; Repaint</p><div class="extra-examples">
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/inpaint_repaint_00028_psnr20.wav" type="audio/wav">
+        </audio></div>
+</div></div></div><div class="col-md-4 col-xxl-2 offset-md-4 offset-xxl-0" style="padding: 0.5rem;margin-bottom: 1rem;"><p class="text-center" style="color: #483d8b;margin-bottom: 3px;"><strong>Our method</strong></p><div style="width: 100%;"><div class="extra-examples">
+  <div style="text-align:center;">
+    <audio controls>
+    <source src="./assets/audio/inpaint_ourmethod_00028_psnr20.wav" type="audio/wav">
+      </audio></div>
+</div></div></div></div></div><div class="container" style="margin-bottom: 2.5rem;border-radius: 16px;border: 2.4px dashed #4c515580;max-width: 98%;"><div class="row"><div class="col-md-12" style="margin-top: -9px;"><p class="fs-5" style="margin-top: 1rem;margin-bottom: 1.5rem;background: #00000012;border-radius: 16px;text-align: center;padding: 8px;"><strong>Example 4&nbsp;</strong>-<strong>&nbsp;</strong>Prompt:&nbsp;<em>A stream of water flows as people talk and wind blows.</em></p></div></div><div class="row" style="margin-right: -10px;margin-left: -10px;padding-bottom: 8px;"><div class="col-12 col-md-6 col-lg-5 col-xl-4 col-xxl-2 offset-md-3 offset-lg-1 offset-xl-2 offset-xxl-1" style="border-radius: 27px;padding: 0.5rem;border-color: #DE8344;"><div style="max-width: 100%;width: 100%;"><p class="fs-6 text-center" style="margin-bottom: 3px;"><strong>Transmitted/Target signal</strong></p><div class="extra-examples">
+  <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00048_original.wav" type="audio/wav">
+      </audio></div>
+    
+</div></div></div><div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 col-xxl-2 offset-md-3 offset-lg-0 offset-xl-0" style="padding: 0.5rem;"><div style="width: 100%;"><p class="text-center" style="margin-bottom: 3px;"><strong>Received signal (PSNR 20)</strong></p><div class="extra-examples">
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00048_original_masked.wav" type="audio/wav">
+        </audio></div>
+</div></div></div><div class="col-md-5 col-xl-4 col-xxl-2 offset-md-1 offset-xl-2 offset-xxl-0" style="padding: 0.5rem;border-color: rgb(91,94,98);"><div style="max-width: 100%;width: 100%;"><p class="text-center" style="margin-bottom: 3px;">AudioLDM</p><div class="extra-examples">
+  <div style="text-align:center;">
+    <audio controls>
+    <source src="./assets/audio/inpaint_audioldm_00048_psnr20.wav" type="audio/wav">
+  </audio>
+    </div>
+</div></div></div><div class="col-md-5 col-lg-5 col-xl-4 col-xxl-2 offset-xxl-0" style="padding: 0.5rem;"><div style="width: 100%;"><p class="text-center" style="margin-bottom: 3px;">Tango &amp; Repaint</p><div class="extra-examples">
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/inpaint_repaint_00048_psnr20.wav" type="audio/wav">
+        </audio></div>
+</div></div></div><div class="col-md-4 col-xxl-2 offset-md-4 offset-xxl-0" style="padding: 0.5rem;margin-bottom: 1rem;"><p class="text-center" style="color: #483d8b;margin-bottom: 3px;"><strong>Our method</strong></p><div style="width: 100%;"><div class="extra-examples">
+  <div style="text-align:center;">
+    <audio controls>
+    <source src="./assets/audio/inpaint_ourmethod_00048_psnr20.wav" type="audio/wav">
+      </audio></div>
+</div></div></div></div></div><div class="container" style="margin-bottom: 2.5rem;border-radius: 16px;border: 2.4px dashed #4c515580;max-width: 98%;"><div class="row"><div class="col-md-12" style="margin-top: -9px;"><p class="fs-5" style="margin-top: 1rem;margin-bottom: 1.5rem;background: #00000012;border-radius: 16px;text-align: center;padding: 8px;"><strong>Example 5&nbsp;</strong>-<strong>&nbsp;</strong>Prompt:&nbsp;<em>A man speaks as a car is passing by.</em></p></div></div><div class="row" style="margin-right: -10px;margin-left: -10px;padding-bottom: 8px;"><div class="col-12 col-md-6 col-lg-5 col-xl-4 col-xxl-2 offset-md-3 offset-lg-1 offset-xl-2 offset-xxl-1" style="border-radius: 27px;padding: 0.5rem;border-color: #DE8344;"><div style="max-width: 100%;width: 100%;"><p class="fs-6 text-center" style="margin-bottom: 3px;"><strong>Transmitted/Target signal</strong></p><div class="extra-examples">
+  <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00029_original.wav" type="audio/wav">
+      </audio></div>
+    
+</div></div></div><div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 col-xxl-2 offset-md-3 offset-lg-0 offset-xl-0" style="padding: 0.5rem;"><div style="width: 100%;"><p class="text-center" style="margin-bottom: 3px;"><strong>Received signal (PSNR 20)</strong></p><div class="extra-examples">
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00029_original_masked.wav" type="audio/wav">
+        </audio></div>
+</div></div></div><div class="col-md-5 col-xl-4 col-xxl-2 offset-md-1 offset-xl-2 offset-xxl-0" style="padding: 0.5rem;border-color: rgb(91,94,98);"><div style="max-width: 100%;width: 100%;"><p class="text-center" style="margin-bottom: 3px;">AudioLDM</p><div class="extra-examples">
+  <div style="text-align:center;">
+    <audio controls>
+    <source src="./assets/audio/inpaint_audioldm_00029_psnr20.wav" type="audio/wav">
+  </audio>
+    </div>
+</div></div></div><div class="col-md-5 col-lg-5 col-xl-4 col-xxl-2 offset-xxl-0" style="padding: 0.5rem;"><div style="width: 100%;"><p class="text-center" style="margin-bottom: 3px;">Tango &amp; Repaint</p><div class="extra-examples">
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/inpaint_repaint_00029_psnr20.wav" type="audio/wav">
+        </audio></div>
+</div></div></div><div class="col-md-4 col-xxl-2 offset-md-4 offset-xxl-0" style="padding: 0.5rem;margin-bottom: 1rem;"><p class="text-center" style="color: #483d8b;margin-bottom: 3px;"><strong>Our method</strong></p><div style="width: 100%;"><div class="extra-examples">
+  <div style="text-align:center;">
+    <audio controls>
+    <source src="./assets/audio/inpaint_ourmethod_00029_psnr20.wav" type="audio/wav">
+      </audio></div>
+</div></div></div></div></div><div class="container"><p class="fs-5" style="text-align: justify;">We also perform a semantic evalutation of the inpainted audio. We apply Whisper Audio Captioning V2&nbsp;<a href="#">[1]</a>&nbsp;to generate captions for audio samples generated with our model (with PSNR=20) and analyse its inpact on the semantics.<br><br>We repeat this process to produce the captions associated with clean sounds, thus enabling a fair comparison between our samples and the original (target)&nbsp;ones.</p></div><div class="container" style="margin-bottom: 2.5rem;border-radius: 16px;border: 2.4px dashed #4c515580;margin-top: 2.5rem;padding-bottom: 10px;padding-right: 11px;"><div class="row"><div class="col-md-12" style="margin-top: 1rem;"><p class="fs-5" style="margin-top: 1rem;margin-bottom: 1.5rem;background: #00000012;border-radius: 16px;text-align: center;padding: 8px;"><strong>Example - semantic evaluation</strong><br>Original prompt:&nbsp;<em>A woman speaks and laughs and an animal grunts and snorts.</em></p></div></div><div class="row" style="margin-left: -10px;margin-right: -10px;"><div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4 offset-md-2 offset-lg-3 offset-xl-1 offset-xxl-1 d-xxl-flex align-items-xxl-center" style="padding: 0.5rem;background: #FEF8F3;border-radius: 27px;border-style: solid;border-color: #DE8344;"><div style="max-width: 100%;width: 100%;"><p class="fs-6 text-center"><strong>Transmitted/Target signal</strong></p><div class="" data-width="100%">
+  <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00017_original.wav" type="audio/wav">
+      </audio></div>
+    
+</div><div style="text-align: center;padding-right: 0.5rem;padding-left: 0.5rem;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="width: 25px;height: 25px;">
+  <path d="M11.0001 3.67157L13.0001 3.67157L13.0001 16.4999L16.2426 13.2574L17.6568 14.6716L12 20.3284L6.34314 14.6716L7.75735 13.2574L11.0001 16.5001L11.0001 3.67157Z" fill="currentColor"></path>
+</svg><div class="d-flex d-lg-flex d-xxl-flex justify-content-center justify-content-lg-center justify-content-xxl-center"><p class="fs-5" style="text-align: center;background: var(--bs-success-bg-subtle);border-radius: 7px;border-style: solid;border-color: var(--bs-success-border-subtle);padding: 6px;margin-bottom: 4px;max-width: 210px;">Whisper Audio Captioning</p></div><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="width: 25px;height: 25px;">
+  <path d="M11.0001 3.67157L13.0001 3.67157L13.0001 16.4999L16.2426 13.2574L17.6568 14.6716L12 20.3284L6.34314 14.6716L7.75735 13.2574L11.0001 16.5001L11.0001 3.67157Z" fill="currentColor"></path>
+</svg></div><p class="fs-5" style="margin-bottom: 1.5rem;background: #00000012;border-radius: 16px;text-align: center;padding: 8px;">Generated prompt:&nbsp;<em>A woman speaks and a pig oinks.</em></p><p class="fs-6 text-center" style="margin-top: 16px;margin-bottom: 0px;color: #DE8344;">Sender</p></div></div><div class="col-lg-4 col-xl-2 col-xxl-2 offset-lg-4 offset-xl-0 offset-xxl-0 text-center d-lg-flex d-xl-flex d-xxl-flex justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center justify-content-xxl-center align-items-xxl-center"><div><img src="assets/img/comm_channel_img.jpeg?h=8e7a3ff6ffbbf1715b3cb5768a1f03f3" style="width: 100%;max-width: 163px;margin-top: 15px;margin-bottom: 8px;"><p style="margin-bottom: 0px;">PSNR levels</p><div class="btn-group psnr-group-2" role="group" style="margin-bottom: 15px;"><button class="btn btn-primary disabled psnr15" type="button" style="border-radius: 16px 0px 0px 16px;background: var(--bs-gray-600);border-color: var(--bs-black);color: rgb(0,0,0);" data-bs-target="" disabled="">15</button><button class="btn btn-primary disabled psnr175" type="button" style="background: var(--bs-gray);border-color: var(--bs-black);color: rgb(0,0,0);" disabled="">17.5</button><button class="btn btn-primary disabled psnr20" type="button" style="background: var(--bs-dark-border-subtle);border-color: var(--bs-black);" disabled=""><strong>20</strong></button><button class="btn btn-primary disabled psnr30" type="button" style="border-radius: 0px 16px 16px 0px;background: var(--bs-gray);border-color: var(--bs-black);color: rgb(0,0,0);" disabled="">30</button></div></div></div><div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4 offset-md-2 offset-lg-3 offset-xl-0 d-flex d-xxl-flex align-items-center align-items-xxl-center" style="padding: 0.5rem;background: #EFF1F4;border-radius: 27px;border-style: solid;border-color: #2F6EBA;"><div style="width: 100%;"><p class="text-center"><strong>Received signal</strong></p><div class="" data-width="100%">
+    <div style="text-align:center;">
+  <audio controls>
+    <source src="./assets/audio/00017_original_masked.wav" type="audio/wav">
+        </audio></div>
+</div><p class="fs-6 text-center" style="margin-top: 16px;margin-bottom: 0px;color: #2F6EBA;">Receiver</p></div></div></div><p class="fs-5" style="margin-top: 23px;margin-bottom: 2px;text-align: center;"><strong>Caption from restored signal</strong></p><div class="row"><div class="col-md-6 col-xl-4 col-xxl-4 offset-md-3 offset-lg-3 offset-xl-1 offset-xxl-1" style="padding-top: 0.5rem;padding-right: 0.5rem;padding-left: 0.5rem;"><div style="width: 100%;"><p class="text-center" style="color: #483d8b;"><strong>Our method</strong></p><div class="ourmethod" data-width="100%">
+  
+  <div style="text-align:center;">
+    <audio controls>
+    <source src="./assets/audio/inpaint_ourmethod_00017_psnr20.wav" type="audio/wav">
+      </audio></div>
+</div></div></div><div class="col-8 col-md-6 col-xl-2 col-xxl-2 offset-2 offset-md-3 offset-lg-3 offset-xl-0 offset-xxl-0 d-xxl-flex align-items-xxl-end" style="padding: inherit;"><div class="d-xl-none" style="text-align: center;padding-right: 0.5rem;padding-left: 0.5rem;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="width: 25px;height: 25px;">
+  <path d="M11.0001 3.67157L13.0001 3.67157L13.0001 16.4999L16.2426 13.2574L17.6568 14.6716L12 20.3284L6.34314 14.6716L7.75735 13.2574L11.0001 16.5001L11.0001 3.67157Z" fill="currentColor"></path>
+</svg><p class="fs-5" style="text-align: center;background: var(--bs-success-bg-subtle);border-radius: 7px;border-style: solid;border-color: var(--bs-success-border-subtle);padding: 6px;margin-bottom: 4px;">Whisper Audio Captioning</p><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="width: 25px;height: 25px;">
+  <path d="M11.0001 3.67157L13.0001 3.67157L13.0001 16.4999L16.2426 13.2574L17.6568 14.6716L12 20.3284L6.34314 14.6716L7.75735 13.2574L11.0001 16.5001L11.0001 3.67157Z" fill="currentColor"></path>
+</svg></div><div class="d-xl-flex justify-content-xl-center align-items-xl-center d-none d-xl-block" style="text-align: center;padding-right: 0.5rem;padding-left: 0.5rem;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="width: 25px;height: 25px;">
+  <path d="M15.0378 6.34317L13.6269 7.76069L16.8972 11.0157L3.29211 11.0293L3.29413 13.0293L16.8619 13.0157L13.6467 16.2459L15.0643 17.6568L20.7079 11.9868L15.0378 6.34317Z" fill="currentColor"></path>
+</svg><p class="fs-5" style="text-align: center;background: var(--bs-success-bg-subtle);border-radius: 7px;border-style: solid;border-color: var(--bs-success-border-subtle);padding: 6px;margin-bottom: 4px;">Whisper Audio Captioning</p><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="width: 25px;height: 25px;">
+  <path d="M15.0378 6.34317L13.6269 7.76069L16.8972 11.0157L3.29211 11.0293L3.29413 13.0293L16.8619 13.0157L13.6467 16.2459L15.0643 17.6568L20.7079 11.9868L15.0378 6.34317Z" fill="currentColor"></path>
+</svg></div></div><div class="col-12 col-md-8 col-lg-6 col-xl-4 col-xxl-4 offset-0 offset-md-2 offset-lg-3 offset-xl-0 offset-xxl-0 d-xl-flex d-xxl-flex align-items-xl-center align-items-xxl-end" style="padding: 0px;"><p class="fs-5" style="background: #00000012;border-radius: 16px;text-align: center;padding: 8px;margin-bottom: 6px;margin-right: 4px;margin-top: 1px;margin-left: 6px;">Generated prompt:&nbsp;<em>A woman speaking and laughing followed by a pig oinking.</em></p></div></div></div><div class="container"><h3 style="color: var(--bs-orange);">Results</h3><p class="fs-5">As shown in the following table, our approach provides the best results in the <strong>denoising </strong>task, both in terms of SNR and FAD.</p><div class="table-responsive tableres">
+    <table class="table">
+        <thead>
+            <tr>
+                <th rowspan="2" class='right-separator-table orange-borders' style='background: #f69240'><span>Model</span></th>
+                <th colspan="2" class='right-separator-table orange-borders' style='text-align: center; background: #f69240; !important;'>PSNR 15</th>
+                <th colspan="2" class='right-separator-table orange-borders' style='text-align: center; background: #f69240; !important;'>PSNR 17.5</th>
+                <th colspan="2" class='right-separator-table orange-borders' style='text-align: center; background: #f69240; !important;'>PSNR 20</th>
+                <th colspan="2" class='orange-borders' style='text-align: center; background: #f69240; !important;'>PSNR 30</th>
+            </tr>
+            <tr class='orange-borders'>
+                <th style='text-align: center; font-weight: normal; background: #f69240; !important;'>SNR<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M12.0321 1.01712L7.75751 5.22761L9.161 6.65246L11.0197 4.82165L10.9644 22.9768L12.9644 22.9829L13.0195 4.86974L14.8177 6.69525L16.2425 5.29175L12.0321 1.01712Z" fill="currentColor"></path>
+</svg></th>
+                <th class='right-separator-table' style='text-align: center; font-weight: normal; background: #f69240; !important;'>FAD<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M13.0125 19.162L14.8246 17.3398L16.2427 18.7501L12.012 23.0046L7.75726 18.7739L9.16751 17.3557L11.0126 19.1905L10.998 0.997021L12.998 0.995422L13.0125 19.162Z" fill="currentColor"></path>
+</svg></th>
+                <th style='text-align: center; font-weight: normal; background: #f69240; !important;'>SNR<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M12.0321 1.01712L7.75751 5.22761L9.161 6.65246L11.0197 4.82165L10.9644 22.9768L12.9644 22.9829L13.0195 4.86974L14.8177 6.69525L16.2425 5.29175L12.0321 1.01712Z" fill="currentColor"></path>
+</svg></th>
+                <th class='right-separator-table' style='text-align: center; font-weight: normal; background: #f69240; !important;'>FAD<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M13.0125 19.162L14.8246 17.3398L16.2427 18.7501L12.012 23.0046L7.75726 18.7739L9.16751 17.3557L11.0126 19.1905L10.998 0.997021L12.998 0.995422L13.0125 19.162Z" fill="currentColor"></path>
+</svg></th>
+                <th style='text-align: center; font-weight: normal; background: #f69240; !important;'>SNR<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M12.0321 1.01712L7.75751 5.22761L9.161 6.65246L11.0197 4.82165L10.9644 22.9768L12.9644 22.9829L13.0195 4.86974L14.8177 6.69525L16.2425 5.29175L12.0321 1.01712Z" fill="currentColor"></path>
+</svg></th>
+                <th class='right-separator-table' style='text-align: center; font-weight: normal; background: #f69240; !important;'>FAD<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M13.0125 19.162L14.8246 17.3398L16.2427 18.7501L12.012 23.0046L7.75726 18.7739L9.16751 17.3557L11.0126 19.1905L10.998 0.997021L12.998 0.995422L13.0125 19.162Z" fill="currentColor"></path>
+</svg></th>
+                <th style='text-align: center; font-weight: normal; background: #f69240; !important;'>SNR<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M12.0321 1.01712L7.75751 5.22761L9.161 6.65246L11.0197 4.82165L10.9644 22.9768L12.9644 22.9829L13.0195 4.86974L14.8177 6.69525L16.2425 5.29175L12.0321 1.01712Z" fill="currentColor"></path>
+</svg></th>
+                <th style='text-align: center; font-weight: normal; background: #f69240; !important;'>FAD<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M13.0125 19.162L14.8246 17.3398L16.2427 18.7501L12.012 23.0046L7.75726 18.7739L9.16751 17.3557L11.0126 19.1905L10.998 0.997021L12.998 0.995422L13.0125 19.162Z" fill="currentColor"></path>
+</svg></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr></tr>
+            <tr>
+                <td class='right-separator-table'>N2N</td>
+                <td style='text-align: center;'>-8.08</td>
+                <td style='text-align: center;'>22.07</td>
+                <td style='text-align: center;'>-6.81</td>
+                <td style='text-align: center;'>20.42</td>
+                <td style='text-align: center;'>-5.16</td>
+                <td style='text-align: center;'>18.25</td>
+                <td style='text-align: center;'><b>1.74</b></td>
+                <td style='text-align: center;'>11.04</td>
+            </tr>
+            <tr>
+                <td class='right-separator-table'>Ours</td>
+                <td style='text-align: center;'><b>-2.88</b></td>
+                <td style='text-align: center;'><b>21.24</b></td>
+                <td style='text-align: center;'><b>-2.63</b></td>
+                <td style='text-align: center;'><b>10.87</b></td>
+                <td style='text-align: center;'><b>-2.74</b></td>
+                <td style='text-align: center;'><b>8.38</b></td>
+                <td style='text-align: center;'>-2.57</td>
+                <td style='text-align: center;'><b>3.75</b></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p class="fs-5" style="margin-top: 1rem;">In the second scenario, in which the inverse problem consists of an&nbsp;<strong>inpainting </strong>task, we evaluate the three approaches with the Fréchet Audio Distance (FAD) on the entire duration of the audio sample (10 seconds) and on the masked section only (1 second). We refer to these as <em>All </em>and <em>Inp </em>FAD.</p><div class="table-responsive tableres">
+    <table class="table">
+        <thead>
+            <tr>
+                <th rowspan="2" class='right-separator-table orange-borders' style='background: #f69240'><span>Model</span></th>
+                <th colspan="2" class='right-separator-table orange-borders' style='text-align: center; background: #f69240; !important;'>PSNR 15</th>
+                <th colspan="2" class='right-separator-table orange-borders' style='text-align: center; background: #f69240; !important;'>PSNR 17.5</th>
+                <th colspan="2" class='right-separator-table orange-borders' style='text-align: center; background: #f69240; !important;'>PSNR 20</th>
+                <th colspan="2" class='orange-borders' style='text-align: center; background: #f69240; !important;'>PSNR 30</th>
+            </tr>
+            <tr class='orange-borders'>
+                <th class='right-separator-table' style='text-align: center; font-weight: normal; background: #f69240; !important;'>All<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M13.0125 19.162L14.8246 17.3398L16.2427 18.7501L12.012 23.0046L7.75726 18.7739L9.16751 17.3557L11.0126 19.1905L10.998 0.997021L12.998 0.995422L13.0125 19.162Z" fill="currentColor"></path>
+</svg></th>
+                <th class='right-separator-table' style='text-align: center; font-weight: normal; background: #f69240; !important;'>Inp<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M13.0125 19.162L14.8246 17.3398L16.2427 18.7501L12.012 23.0046L7.75726 18.7739L9.16751 17.3557L11.0126 19.1905L10.998 0.997021L12.998 0.995422L13.0125 19.162Z" fill="currentColor"></path>
+</svg></th>
+                <th class='right-separator-table' style='text-align: center; font-weight: normal; background: #f69240; !important;'>All<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M13.0125 19.162L14.8246 17.3398L16.2427 18.7501L12.012 23.0046L7.75726 18.7739L9.16751 17.3557L11.0126 19.1905L10.998 0.997021L12.998 0.995422L13.0125 19.162Z" fill="currentColor"></path>
+</svg></th>
+                <th class='right-separator-table' style='text-align: center; font-weight: normal; background: #f69240; !important;'>Inp<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M13.0125 19.162L14.8246 17.3398L16.2427 18.7501L12.012 23.0046L7.75726 18.7739L9.16751 17.3557L11.0126 19.1905L10.998 0.997021L12.998 0.995422L13.0125 19.162Z" fill="currentColor"></path>
+</svg></th>
+                <th class='right-separator-table' style='text-align: center; font-weight: normal; background: #f69240; !important;'>All<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M13.0125 19.162L14.8246 17.3398L16.2427 18.7501L12.012 23.0046L7.75726 18.7739L9.16751 17.3557L11.0126 19.1905L10.998 0.997021L12.998 0.995422L13.0125 19.162Z" fill="currentColor"></path>
+</svg></th>
+                <th class='right-separator-table' style='text-align: center; font-weight: normal; background: #f69240; !important;'>Inp<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M13.0125 19.162L14.8246 17.3398L16.2427 18.7501L12.012 23.0046L7.75726 18.7739L9.16751 17.3557L11.0126 19.1905L10.998 0.997021L12.998 0.995422L13.0125 19.162Z" fill="currentColor"></path>
+</svg></th>
+                <th class='right-separator-table' style='text-align: center; font-weight: normal; background: #f69240; !important;'>All<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M13.0125 19.162L14.8246 17.3398L16.2427 18.7501L12.012 23.0046L7.75726 18.7739L9.16751 17.3557L11.0126 19.1905L10.998 0.997021L12.998 0.995422L13.0125 19.162Z" fill="currentColor"></path>
+</svg></th>
+                <th class='right-separator-table' style='text-align: center; font-weight: normal; background: #f69240; !important;'>Inp<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M13.0125 19.162L14.8246 17.3398L16.2427 18.7501L12.012 23.0046L7.75726 18.7739L9.16751 17.3557L11.0126 19.1905L10.998 0.997021L12.998 0.995422L13.0125 19.162Z" fill="currentColor"></path>
+</svg></th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            <tr></tr>
+            <tr>
+                <td class='right-separator-table'>AudioLDM</td>
+                <td style='text-align: center;'>2.23</td>
+                <td style='text-align: center;'>14.89</td>
+                <td style='text-align: center;'>2.25</td>
+                <td style='text-align: center;'>14.13</td>
+                <td style='text-align: center;'>2.29</td>
+                <td style='text-align: center;'>13.95</td>
+                <td style='text-align: center;'>2.32</td>
+                <td style='text-align: center;'>12.11</td>
+            </tr>
+            <tr>
+                <td class='right-separator-table'>Repaint</td>
+                <td style='text-align: center;'>6.17</td>
+                <td style='text-align: center;'>21.43</td>
+                <td style='text-align: center;'>4.57</td>
+                <td style='text-align: center;'>22.22</td>
+                <td style='text-align: center;'>2.95</td>
+                <td style='text-align: center;'>16.21</td>
+                <td style='text-align: center;'>2.17</td>
+                <td style='text-align: center;'>22.19</td>
+            </tr>
+            <tr>
+                <td class='right-separator-table'>Ours</td>
+                <td style='text-align: center;'><b>2.14</b></td>
+                <td style='text-align: center;'><b>11.95</b></td>
+                <td style='text-align: center;'><b>2.16</b></td>
+                <td style='text-align: center;'><b>12.52</b></td>
+                <td style='text-align: center;'><b>1.98</b></td>
+                <td style='text-align: center;'><b>10.37</b></td>
+                <td style='text-align: center;'><b>2.08</b></td>
+                <td style='text-align: center;'><b>10.33</b></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div><div class="container" style="margin-top: 2rem;"><h3 style="color: var(--bs-orange);">Cite us</h3><p class="fs-5">If you found this work useful, please cite us as follows:</p><p class="font-monospace fs-6">@article{Grassucci2023DiffusionMF,<br>&nbsp;title={Diffusion models for audio semantic communication},<br>&nbsp;author={Grassucci, Eleonora and Marinoni, Christian and Rodriguez, Andrea and Comminiello, Danilo},<br>&nbsp;journal={ArXiv preprint: arXiv:2309.07195},<br>&nbsp;year={2023}<br>}</p></div><footer class="text-center"><div class="container text-muted py-4 py-lg-5"><ul class="list-inline"><li class="list-inline-item me-4"><a class="link-secondary" href="https://arxiv.org/abs/2309.07195">Paper on arXiv</a></li><li class="list-inline-item me-4"><a class="link-secondary" href="#">Code on GitHub (available soon)</a></li><li class="list-inline-item"><a class="link-secondary" href="https://sites.google.com/uniroma1.it/ispamm/" data-bs-target="https://sites.google.com/uniroma1.it/ispamm/">ISPAMM Lab</a></li></ul><ul class="list-inline"><li class="list-inline-item me-4"><a href="https://twitter.com/IspammL"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-twitter" style="font-size: 15px;color: var(--bs-highlight-color);">
+  <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+</svg></a></li></ul></div></footer><script src="assets/js/jquery.min.js?h=6bcc3684f18aa21874fa709f122723cf"></script><script src="assets/bootstrap/js/bootstrap.min.js?h=e55bde7d6e36ebf17ba0b8c1e80e4065"></script><script src="assets/js/interactivity.min.js?h=5018579475e6899bcdf3fce4732e92f1"></script><script src="assets/js/spectrogram-player.min.js?h=fc7e3f4c3a25829d8466c9e636edded4"></script></body></html>
